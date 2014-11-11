@@ -53,6 +53,9 @@ def common_parser():
             'spaces, quotes, and backslashes')
     parser.add_option('-X', '--extra-arg', dest='extra', action='append',
             metavar='ARG', help='Extra command-line argument')
+    parser.add_option('-c', '--exit-codes', dest='exitcodes', action='append',
+            metavar='EXIT_CODES',
+            help='exit codes file, (each line exit code: {<exit code> | <<>= | > | <= | <> <exit code>> | <<> | >=> <exit code> << | <=> <ceiling>>}')
 
     return parser
 
@@ -73,6 +76,7 @@ def common_defaults(**kwargs):
             ('archive', 'PSSH_ARCHIVE'),
             ('compress', 'PSSH_COMPRESS'),
             ('localdir', 'PSSH_LOCALDIR'),
+            ('exitcodes', 'PSSH_EXITCODES'),
             ]
     for option, var, in envvars:
         value = os.getenv(var)

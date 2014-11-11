@@ -98,6 +98,10 @@ def do_pssh(hosts, cmdline, opts):
     for status in statuses:
         if status == 255:
             sys.exit(4)
+    if opts.exitcodes:
+        exit_code_index = psshutil.get_exit_code_index(statuses, opts.exitcodes)
+        if exit_code_index > -1:
+            sys.exit(exit_code_index)
     for status in statuses:
         if status != 0:
             sys.exit(5)
