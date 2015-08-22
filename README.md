@@ -1,4 +1,4 @@
-# nathansyfrig-exit-codes-handling
+# parallel-ssh with extra exit-codes-handling
 
 Adds an option to handle expected non-zero exit codes that a remote may return.
 
